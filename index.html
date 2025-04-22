@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resturant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    ul .navbar {
+        list-style: none;
+    }
+    section{
+        scroll-behavior: smooth;
+        scroll-margin: 64px;
+    }
+   
+
+    a {
+        text-decoration: none;
+        color: rgb(46, 2, 70);
+        font-size: 20px;
+        text-shadow: 0.5px 0.5px yellow;
+        font-weight: bold;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+
+    }
+    .logo{
+font-size: 35PX;
+font-weight: bold;
+padding-right: 110px;
+color: rgb(84, 1, 1);
+text-shadow: 1px 0.5px 0.5px blue;
+
+    }
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background-color: rgb(177, 173, 173);
+        
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    nav ul {
+        display: flex;
+        gap: 25px;
+    }
+
+    nav ul li {
+        font-size: 1.3rem;
+        border-bottom: 0.4rem solid transparent;
+        transition: 0.3s ease-in;
+    }
+
+    nav ul li:hover {
+        background-color: rgb(206, 203, 203);
+        border-radius: 150px;
+        border: 2px solid grey;
+        padding: 6px;
+        border-color: rgb(172, 171, 171);
+        transition: 0.3s ease-in;
+    }
+
+    .home {
+        /* background-image: url(image/BG.jpg);
+        height: 80vh;
+        width: 100vw;
+
+        /* display: grid; */
+        /* display: flex;
+        color: white;
+        background-repeat: no-repeat; */ 
+    
+    background-image: url(image/BG.jpg);
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Centers the image */
+    /* background-attachment: fixed; Makes the background fixed for a parallax effect */
+}
+
+    
+
+    .home .container {
+        display: flex;
+        flex-direction: column;
+        /* gap: 30px; */
+    }
+
+    .home h1 {
+        font-size: 45px;
+        text-shadow: 3.5PX 3.5PX 3.5PX black;
+        /* width: 700px; */
+        top: 400px;
+        margin-top: 200px;
+    }
+
+    .home p {
+        font-weight: bold;
+        justify-content: center;
+        text-align: center;
+        font-size: 13px;
+        text-shadow: 2px 2px 2px rgb(58, 0, 80);
+    }
+
+    .btn1 {
+        width: 80px;
+        align-items: center;
+        text-align: center;
+        margin-left: 230px;
+        margin-top: 8px;
+        border-radius: 10px;
+        padding: 5px;
+        background-color:
+            rgb(194, 6, 6);
+    }
+
+    .primary {
+        align-items: center;
+        text-align: center;
+        font-size: 40px;
+        margin-top: 9px;
+        /* background-color: rgb(231, 119, 149); */
+
+    }
+
+    .primary-1 {
+        align-items: center;
+        text-align: center;
+        border: 2px solid black;
+        margin-top: 25px;
+        background-color: red;
+        width: 160px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        border-radius: 18px;
+        margin-left: 530px;
+        display: inline-block;
+    }
+
+    /* fooditems section */
+    .fooditem {
+        display: flex;
+        overflow-x: auto;
+    }
+
+    .fooditem .box {
+        border: 2px solid brown;
+        height: 260px;
+        width: 220px;
+        border-radius: 20px;
+        padding: 22px;
+        background-color: #ddcccc;
+        margin: 7px;
+    }
+
+    .fooditem .box img {
+        height: 120px;
+        width: 120px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* service section */
+    .ser {
+        display: flex;
+        margin: 34px;
+        font-weight: bold;
+    }
+
+    .ser .box1 {
+        border: 2px solid brown;
+        height: 420px;
+        width: 420px;
+        border-radius: 24px;
+        padding: 30px;
+        background-color: #f3eded;
+        margin: 7px;
+    }
+
+    .ser .box1 img {
+        height: 180px;
+        width: 180;
+        margin: 5x;
+        padding-left: 40px;
+        align-items: center;
+        text-align: center;
+        border-radius: 10px;
+        justify-content: center;
+    }
+
+    h2.secondary {
+        font-size: 2.1rem;
+        padding: 12px;
+        text-align: center;
+        margin: 5px;
+        font-weight: bold;
+    }
+
+    .restInfo {
+        padding: 8px;
+        background-color: rgb(248, 230, 230);
+    }
+
+    .About h1 {
+        font-size: 30px;
+        padding: 8px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .restInfo h2 {
+        padding-bottom: 6px;
+    }
+
+    /* contact section  */
+    .contact {
+        position: relative;
+        min-height: 100vh;
+        padding: 50px 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-image: url(image/contact.jpg);
+        margin-bottom: 0;
+        background-size: cover;
+    }
+
+    .contact .content {
+        max-width: 800px;
+        text-align: center;
+    }
+
+    .contact .content h2 {
+        font-size: 36px;
+        font-weight: 500;
+        color: #fff;
+    }
+
+    .contact .content p {
+        font-weight: 300;
+        color: #fff;
+        text-shadow: 2px 2px 2px black;
+    }
+
+    .container1 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .container1 .contactInfo {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container1 .contactInfo .box2 {
+        position: relative;
+        padding: 20px 0;
+        display: flex;
+    }
+
+    .container1 .contactInfo .box2 .icon {
+        min-width: 60px;
+        height: 60px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 22px;
+    }
+
+    .container1 .contactInfo .box2 .text {
+        display: flex;
+        margin-left: 20px;
+        font-size: 15px;
+        color: #fff;
+        flex-direction: column;
+        font-weight: 300;
+    }
+
+    .container1 .contactInfo .box2 .text h3 {
+        font-weight: 500;
+        color: #00bcd4;
+    }
+
+    .contactform {
+        width: 40%;
+        padding: 35px;
+        background: #fff;
+    }
+
+    .contactform h2 {
+        font-size: 30px;
+        color: #333;
+        font-weight: 500;
+    }
+
+    .contactform .inputbox {
+        position: relative;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .contactform .inputbox input,
+    .contactform .inputbox textarea {
+        width: 100%;
+        padding: 5px 0;
+        font-size: 16px;
+        margin: 10px 0;
+        border: none;
+        border-bottom: 2px solid #333;
+        outline: none;
+        resize: none;
+    }
+
+    .contactform .inputbox span {
+        position: absolute;
+        left: 0;
+        padding: 5px 0;
+        font-size: 16px;
+        margin: 10px 0;
+        pointer-events: none;
+        transition: 0.5s;
+        color: #666;
+    }
+
+    .contactform .inputbox input:focus~span,
+    .contactform .inputbox input:valid~span,
+    .contactform .inputbox textarea:focus~span,
+    .contactform .inputbox textarea:valid~span {
+        color: #e91e63;
+        font-size: 12px;
+        transform: translateY(-20px);
+    }
+
+    .contactform .inputbox input[type="submit"] {
+        width: 100px;
+        background: #00bcd4;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    h2.tert {
+        /* font-size: 2.1rem; */
+        padding: 5px;
+        text-align: center;
+        margin: 2px;
+        font-weight: bold;
+        /* flex-direction: column; */
+        display: block;
+    }
+
+    h3.card {
+        border: 2px solid rgb(213, 213, 0);
+        background-color: rgb(255, 255, 74);
+        border-radius: 5px;
+        padding: 2px;
+        text-align: center;
+        margin: 2px;
+        font-weight: bold;
+        display: block;
+    }
+
+    h4 {
+        color: rgb(47, 3, 82);
+        padding: 5px;
+        text-align: center;
+        margin: 2px;
+        font-weight: bold;
+        display: block;
+    }
+
+    h4.large {
+        color: black;
+        font-size: 15px;
+    }
+
+     .bottomfooter {
+        background-color: rgb(78, 78, 78);
+        margin: 0;
+        bottom: 0;
+        padding: 70px 0px 30px;
+        font-size: 13px;
+        line-height: 15px;
+        width: 100%;
+        color: #fff;
+    }
+
+    .row {
+        width: 85%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .col h3 {
+        width: fit-content;
+        margin-bottom: 35px;
+        position: relative;
+    }
+
+    .col p{
+        padding: 1px;
+    }
+    .footicon{
+        padding-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 45px;
+    }
+    .footicon input{
+        width: 100%;
+        background: transparent;
+        color: #fffbfb;
+       text-decoration-color: #fff;
+        border: 0;
+        outline: none;
+    }
+    .footicon button {
+        background: transparent;
+        border: 0;
+        outline: none;
+        cursor: pointer;
+    }
+    .footicon button .fa{
+       color: #ccc;
+       font-size: 16px;
+    }
+    .social-icons {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        font-size: 40px;
+        color: #fff;
+        margin-right: 25px;
+        cursor: pointer;
+        padding-bottom: 4px;
+    }
+    hr{
+        width: 90%;
+        border: 0;
+        border-bottom: 1px solid #ccc;
+        margin: 17px auto;
+    }
+    .copyright{
+        text-align: center;
+        align-items: center;
+    } 
+</style>
+
+<body>
+    <header>
+        <nav class="container">
+             <div class="logo">
+                <I>OnlineMeal</I>
+            </div> 
+            <ul>
+                <a href="#Home" class="navbar">
+                    <li>Home</li>
+                </a>
+                <a href="#Foodstuffs" class="navbar">
+                    <li>Menu</li>
+                </a>
+                <a href="#Services" class="navbar">
+                    <li>Services</li>
+                </a>
+                <a href="Order.html" class="navbar">
+                    <li>Order Now</li>
+                </a>
+                <a href="#About us" class="navbar">
+                    <li>About Us</li>
+                </a>
+                <a href="#Contact" class="navbar">
+                    <li>Contact</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="home" id="Home">
+            <div class="container">
+                <h1>Welcome To My OnlineMeal </h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis vero iste eveniet repellendus qui
+                    tempora. </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn1">Order Now</button>
+            </div>
+        </section>
+        <section class="Food" id="Foodstuffs">
+            <h1 class="primary"><i>FoodStuffs</i></h1>
+            <div class="primary-1">
+                <h2>Spicy Food</h2>
+            </div>
+            <div class="fooditem">
+                <div class="box">
+                    <img src="image/food1.png" alt="">
+                    <h2 class="tert">Veg Rice</h2>
+                    <h4>Price: $0.60</h4>
+                    <h3 class="card">Card: 1</h3>
+                </div>
+                <div class="box">
+                    <img src="image/food3.jpg" alt="">
+                    <h2 class="tert">Manchurian</h2>
+                    <h4>Price: $0.72</h4>
+                    <h3 class="card">Card: 2</h3>
+                </div>
+                <div class="box">
+                    <img src="image/food4.jpg" alt="">
+                    <h2 class="tert">Noodles</h2>
+                    <h4>Price: $0.60</h4>
+                    <h3 class="card">Card: 3</h3>
+                </div>
+                <div class="box">
+                    <img src="image/food5.webp" alt="">
+                    <h2 class="tert">Burger</h2>
+                    <h4>Price: $0.48</h4>
+                    <h3 class="card">Card: 4</h3>
+                </div>
+                <div class="box">
+                    <img src="image/food7.jpg" alt="">
+                    <h2 class="tert">Samosa</h2>
+                    <h4>Price: $1.80</h4>
+                    <h3 class="card">Card: 5</h3>
+                </div>
+                <div class="box">
+                    <img src="image/food8.jpg" alt="">
+                    <h2 class="tert">Burger</h2>
+                    <h4>Price: $1.80</h4>
+                    <h3 class="card">Card: 6</h3>
+                </div>
+                <div class="box">
+                    <img src="image/food10.jpg" alt="">
+                    <h4 class="large">Masala Pasta</h4>
+                    <h4>Price: $0.60</h4>
+                    <h3 class="card">Card: 7</h3>
+                </div>
+                <div class="box">
+                    <img src="image/food11.jpg" alt="">
+                    <h4 class="large">Manchurian Rice</h4>
+                    <h4>Price: $0.96</h4>
+                    <h3 class="card">Card: 8</h3>
+                </div>
+                <div class="box">
+                    <img src="image/food9.jpg" alt="">
+                    <h3 class="tert">Pani Puri</h3>
+                    <h4>Price: $0.48</h4>
+                    <h3 class="card">Card: 9</h3>
+                </div>
+               
+        </section>
+        <section>
+            <div class="primary-1">
+                <h2>Sweet Items</h2>
+            </div>
+            <div class="fooditem">
+                <div class="box">
+                    <img src="image/sweet1.jpg" alt="">
+                    <h3 class="tert">Profiteroles</h3>
+                    <h4>Price: $1.08</h4>
+                    <h3 class="card">Card: A</h3>
+                </div>
+                <div class="box">
+                    <img src="image/sweet2.jpg " alt="">
+                    <h3 class="tert">IceCreamCup</h3>
+                    <h4>Price: $1.80</h4>
+                    <h3 class="card">Card: B</h3>
+                </div>
+                <div class="box">
+                    <img src="image/sweet3.webp" alt="">
+                    <h4 class="large">Choclate cake</h4>
+                    <h4>Price: $1.44</h4>
+                    <h3 class="card">Card: C</h3>
+                </div>
+                <div class="box">
+                    <img src="image/sweet4.jpg" alt="">
+                    <h3 class="tert">Rasgulla</h3>
+                    <h4>Price: $1.56</h4>
+                    <h3 class="card">Card: D</h3>
+                </div>
+                <div class="box">
+                    <img src="image/sweet5.jpg" alt="">
+                    <h4 class="large">Dark Choclate</h4>
+                    <h4>Price: $2.04</h4>
+                    <h3 class="card">Card: E</h3>
+                </div>
+                <div class="box">
+                    <img src="image/sweet6.jpg" alt="">
+                    <h3 class="tert">Ice Cream</h3>
+                    <h4>Price: $1.20</h4>
+                    <h3 class="card">Card: F</h3>
+                </div>
+                <div class="box">
+                    <img src="image/sweet7.jpg" alt="">
+                    <h3 class="tert">Soft-Serve</h3>
+                    <h4>Price: $1.08</h4>
+                    <h3 class="card">Card: G</h3>
+                </div>
+                <div class="box">
+                    <img src="image/sweet8.jpg" alt="">
+                    <h4 class="large">Cherry IceCream</h4>
+                    <h4>Price: $1.56</h4>
+                    <h3 class="card">Card: H</h3>
+                </div>
+                <div class="box">
+                    <img src="image/sweet9.jpg" alt="">
+                    <h3 class="tert">CupCake</h3>
+                    <h4>Price: $4.80</h4>
+                    <h3 class="card">Card: I</h3>
+                </div>
+
+
+            </div>
+            </div>
+        </section>
+        <section class="services" id="Services">
+            <h1 class="primary"><i>Our Services</i></h1>
+            <div class="ser">
+                <div class="box1">
+                    <img src="image/Catering.jpg" alt="">
+                    <h2 class="secondary">
+                        Food Catering
+                    </h2>
+                    <p class="center">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor optio cum tenetur doloribus
+                        ipsam dolorum! Similique, ipsum iure hic omnis illo autem aperiam expedita, quidem vitae eos
+                        sunt quisquam iusto et quia impedit sint! Lorem ipsum dolor sit amet consectetur.
+                    </p>
+                </div>
+                <div class="box1">
+                    <img src="image/Ordering.jpg" alt="">
+                    <h2 class="secondary">
+                        Food Ordering
+                    </h2>
+                    <p class="center">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor optio cum tenetur doloribus
+                        ipsam dolorum! Similique, ipsum iure hic omnis illo autem aperiam expedita, quidem vitae eos
+                        sunt quisquam iusto et quia impedit sint! Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                </div>
+                <div class="box1">
+                    <img src="image/Delivery.jpg" alt="">
+                    <h2 class="secondary">
+                        Food Delivery
+                    </h2>
+                    <p class="center">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor optio cum tenetur doloribus
+                        ipsam dolorum! Similique, ipsum iure hic omnis illo autem aperiam expedita, quidem vitae eos
+                        sunt quisquam iusto et quia impedit sint! Lorem ipsum dolor sit amet consectetur.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="About" id="About us">
+            <div class="restInfo">
+                <h1>About our Resturant</h1>
+                <div>
+                    <h2>Resturant Name</h2>
+                    Users search for and identify places to eat or order from Resturant names
+                    <br>
+                    <br>
+
+                    <ul class="resturant">
+                        <li><B>#</B> Restaurant names on OlineMeal must be written as they appears on the board outside
+                            the resturant.</li>
+                        <li><b>#</b> Restaurant establishment types and taglines(unless the resturant name is registered
+                            with the tagline)must not be mentioned in the name of the resturant on OnlineMeal.</li>
+                        <li><b>#</b> Restaurant abbreviations in the resturant names is not accepted on OnlineMeal</li>
+                    </ul>
+                </div><br>
+                <div>
+                    <h2>Restaurant Address</h2>
+                    A dinner looks for these facilities when deciding about where to dine. These are called attribute
+                    tags on OnlineMeal.
+                    <br>
+                    <br>
+                    <ul>
+                        <li><b>#</b>The <b>Pure Veg</b>(no meat and egg)tag is used for restaurants that serve only
+                            vegetarian food</li>
+                        <li><b>#</b>
+                            <b>Happy Hours</b> are exclusively for restaurants that serve non-alcholoic drink and that
+                            offer special offers or discounted rates during a period in the day
+                        </li>
+                        <li><b>#</b> Wi-Fi Available</b> is marked if the dinners can use Wi-Fi services at the
+                            restaurant and not only by the management.</li>
+                    </ul>
+                </div>
+                <br>
+                <div>
+                    <h2>Business Hours</h2>
+                    The operational hours of a restaurantn is represented as business hours so that others can plan
+                    their convenient time.
+                    <br>
+                    <br>
+                    Users can filter restaurants based on a restaurant opening hours by using the"Open at" filter on
+                    OnlineMeal.
+                    <br>
+                    <ul>
+                        <li><b>#</b> A 24-hours clock is used to add timing to a listing. This is displayed on the
+                            restaurant page in a 12-hour clock format.</li>
+                        <li><b>#</b> We always add the timing for the dine-in hours. If the delivery hours are from the
+                            dine-in timings.we can add the custom delivery timing to your page if you mail us at
+                            restaurant@OnlineMail.com.</li>
+                        <li><b>#</b> The timing grids on OnlineMeal accept only numerals,so only specific times can be
+                            entered. Entering specific timing as specified above will help the users find your
+                            restaurant using the filter'Open at'if they search for a specific time while choosing a
+                            restaurant. </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="contact" id="Contact">
+            <div class="content">
+                <h2>Contact Us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut in adipisci reiciendis, odit assumenda
+                    porro iste dolorum quod nulla non? Amet accusantium quam vero adipisci aspernatur cumque, cupiditate
+                    itaque numquam sequi qui!</p>
+            </div>
+            <div class="container1">
+                <div class="contactInfo">
+                    <div class="box2">
+                        <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i>
+                        </div>
+                        <div class="text">
+                            <h3>Email</h3>
+                            <p>OnlineMeal_food@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="box2">
+                        <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                        <div class="text">
+                            <h3>Phone</h3>
+                            <p>689-405-203</p>
+                        </div>
+                    </div>
+                    <div class="box2">
+                        <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </div>
+                        <div class="text">
+                            <h3>Address</h3>
+                            <p>Plot 45 & 45B, Great Nag Road,<br>Hanuman Nagar, Gandhibagh,<br> Nagpur,Maharashtra <br>
+                                092090 60000</p>
+                            <p><iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.3928576512913!2d79.08967087508401!3d21.13675848053983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c0bc623fcf55%3A0x3d8f3f55d58d83e7!2sOrient%20Taibah!5e0!3m2!1sen!2sin!4v1698515966694!5m2!1sen!2sin"
+                                    width="150" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contactform">
+                    <form action="noation.phr">
+                        <h2>Send Message</h2>
+                        <div class="inputbox">
+                            <input type="text" name="" required="required">
+                            <span>Full Name</span>
+                        </div>
+                        <div class="inputbox">
+                            <input type="text" name="" required="required">
+                            <span>Email</span>
+                        </div>
+                        <div class="inputbox">
+                            <textarea required="required"></textarea>
+                            <span>Type your Message</span>
+                        </div>
+                        <div class="inputbox">
+                            <input type="submit" name="" value="Send">
+                        </div>
+                    </form>
+                </div>
+        </section>
+        <div class="bottomfooter">
+            <section>
+                <div class="row">
+                    <div class="col">
+                        <h3>Shop timing</h3>
+                        <p>Morning: 8:00AM to 12:30PM</p>
+                        <p>Afternoon: 1:00PM to 3:30PM</p>
+                        <p>Evening: 4:00PM to 11:30PM</p>
+                    </div>
+                    <div class="col">
+                        <h3>Social Media Partner</h3>
+                        <P>Zomato</P>
+                        <P>Swiggy</P>
+                        <P>GrubHub</P>
+                        <p>Domino's</p>
+                        <p>Foodchow</p>
+                    </div>
+                    <div class="col">
+                        <h3>Delivary partner</h3>
+                        <p>DoorDash</p>
+                        <p>Seamless</p>
+                        <p>Postmates</p>
+                        <p>ChowNow</p>
+                        <p>GrubHub</p>
+                        <p>Cavier</p>
+                    </div>
+                    <div class="col">
+                        <h3>Newsletter</h3>
+                        <div class="footicon">
+                            <form>
+                                <!-- <i class="fa fa-envelope-o" aria-hidden="true"></i> -->
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <input type="email" placeholder="enter your email id " required>
+                                <button type="submit"><i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                            <i class="fab fa-whatsapp"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-pinterest"></i>
+                            
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <p class="copyright">My OnlineMeal_food @ 2023 - All Right Reserved</p>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+
+</html>

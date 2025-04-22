@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>food order</title>
+</head>
+<style>
+    body {
+        background-image: url(image/order3.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 0;
+        margin: 0;
+        /* box-sizing: border-box; */
+    }
+    .form{
+         background-color: grey;
+         padding-right: 100px;
+         padding-left: 100px;
+         padding: 50px;
+        max-width: 330px;
+         /* position: relative; */
+         display: flex;
+         border-radius: 18px;
+         margin: auto;
+         align-items: center;
+         opacity: 0.7;
+         align-items: center;
+    }
+    .box{
+        margin: 10px;
+        margin-right: 130px;
+        border: 2px solid rgb(69, 69, 69);
+        border-radius: 16px;
+    }
+    .box input{
+        padding: 9px;
+        padding-left: 60px;
+        padding-right: 60px;
+        text-align: center;
+        align-items: center;
+        font-weight: bold;
+        border-radius: 16px;
+    }
+    .submit{
+        align-items: center;
+        text-align: center;
+        max-width: 300px;
+    }
+    .submit input{
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        padding-right: 40px;
+        padding-left: 40px;
+        color: black;
+        font-weight: bold;
+        font-size: 17px;
+border-radius: 20px;
+        border: 3px solid rgb(79, 78, 78);
+        background-color: rgb(231, 28, 78);
+    }
+    .container h1{
+        text-align: center;
+        align-items: center;
+        font-size: 50px;
+        color: rgb(58, 4, 4);
+        font-weight: bold;
+        padding: 17px;
+        text-shadow: 2px 2px 2px rgb(27, 20, 255);
+
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1><i>Order Your Delicious Food</i></h1>
+    <div class="form">
+        <form action="noaction.php">
+            <div class="box">
+                <input type="text" name="name" placeholder="enter your name ">
+            </div>
+            <div class="box">
+                <input type="email" name="name" placeholder="enter your email">
+            </div>
+            <div class="box">
+                <input type="phone" name="name" placeholder="enter your contact number">
+            </div>
+            <label for="Card">Card</label>
+            <select id="Card">
+                <option value="Card">Select Card</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="G">G</option>
+            </select>
+            <div class="box">
+                <input type="text" placeholder="Number of item">
+            </div>
+            <div class="box">
+                <input type="text" name="name" placeholder="enter your Address ">
+            </div>
+            <div class="box">
+                <input type="text" name="name" placeholder="enter your Pincode No. ">
+            </div>
+            <div class="submit">
+                
+                    <input type="submit" value="Submit">
+
+
+            </div>
+        </form>
+    </div>
+    </div>
+</body>
+
+</html>
